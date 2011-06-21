@@ -1,0 +1,33 @@
+<%= form_for(@cut) do |f| %>
+  <% if @cut.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cut.errors.count, "error") %> prohibited this cut from being saved:</h2>
+
+      <ul>
+      <% @cut.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => 111 %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br />
+    <em>[cool tags control should go here]</em>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.collection_select :language_id, Language.all.sort_by(&:name), :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_area :code, :size => "80x20" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

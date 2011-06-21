@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @cut.title %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @cut.language.name %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @cut.tags %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @cut.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_cut_path(@cut) %> |
+<%= link_to 'Back', cuts_path %>

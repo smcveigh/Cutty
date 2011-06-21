@@ -1,0 +1,33 @@
+<h1>Listing cuts</h1>
+
+<table cellpadding="10" cellspacing="10">
+  <tr>
+    <th>Title</th>
+    <th>Code</th>
+    <th>Tags</th>
+    <th>Language</th>
+    <th>Added By</th>
+    <th>Created On</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cuts.each do |cut| %>
+  <tr>
+    <td><%= cut.title %></td>
+    <td><%= cut.code %></td>
+    <td><%= cut.tags %></td>
+    <td><%= cut.language.name %></td>
+    <td><%= cut.user %></td>
+    <td><%= cut.created_at %></td>
+    <td><%= link_to 'Show', cut %></td>
+    <td><%= link_to 'Edit', edit_cut_path(cut) %></td>
+    <td><%= link_to 'Destroy', cut, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cut', new_cut_path %>
